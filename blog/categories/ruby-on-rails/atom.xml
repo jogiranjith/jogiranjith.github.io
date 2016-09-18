@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Code Galaxy]]></title>
-  <link href="http://jogiranjith.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Ruby on Rails | Code Galaxy]]></title>
+  <link href="http://jogiranjith.github.io/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
   <link href="http://jogiranjith.github.io/"/>
   <updated>2016-09-18T18:02:31+05:30</updated>
   <id>http://jogiranjith.github.io/</id>
