@@ -1,0 +1,70 @@
+---
+layout: post
+title: "CORS on rails and Nginx"
+date: 2016-07-27 00:42:22 +0530
+comments: true
+categories: ["Rails","NGINX","Deployment","Cors"] 
+---
+When using rails api for web applications like angular or node js  the cors has to be handled on the
+both nginx and api server. Please refer the following code snippet to get this
+right.
+
+#### Handle Cors in Nginx
+
+  Add the following lines to nginx conf file sudo vim /etc/nginx/sites-available/default        
+
+      location / {
+        proxy_pass http://app;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+      if ($request_method = 'OPTIONS') {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Max-Age' 1728000;
+        add_header 'Content-Type' 'text/plain charset=UTF-8';
+        add_header 'Content-Length' 0;
+        return 204;
+      }
+      if ($request_method = 'POST') {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-    Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+
+     }
+     if ($request_method = 'GET') {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+     }
+     }
+
+
+#### Handle cors in Rails api 
+
+  Add the following preflight check on the base controller.
+
+     class Api::BaseController < ApplicationController
+
+       before_filter :cors_preflight_check
+       after_filter :cors_set_access_control_headers
+       
+       def cors_set_access_control_headers
+         #headers['Access-Control-Allow-Origin'] = '*'
+         headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PATCH, DELETE'
+         headers['Access-Control-Request-Method'] = '*'
+         headers['Access-Control-Max-Age'] = "1728000"
+       end
+
+      def cors_preflight_check
+        if request.method.to_s.downcase == "options"
+         #headers['Access-Control-Allow-Origin'] = '*'
+         headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PATCH, DELETE'
+         headers['Access-Control-Request-Method'] = '*'
+         headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version, Content-Type'
+         headers['Access-Control-Max-Age'] = '1728000'
+         render :json => {}
+       end
+     end
+
+
