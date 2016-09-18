@@ -4,7 +4,7 @@
   <title><![CDATA[Code Galaxy]]></title>
   <link href="http://jogiranjith.github.io/atom.xml" rel="self"/>
   <link href="http://jogiranjith.github.io/"/>
-  <updated>2016-09-18T18:13:48+05:30</updated>
+  <updated>2016-09-18T18:20:25+05:30</updated>
   <id>http://jogiranjith.github.io/</id>
   <author>
     <name><![CDATA[Ranjith]]></name>
@@ -342,6 +342,177 @@ endif
 
 <p>If you want see my own vimrc your can see it on one of my <a href="https://github.com/jogiranjith/vim-conf">github
 repository</a>. With the Vundle help, it’s really simple to understand what plugin I really use. All is in only one file.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Ruby on Rails in Mac/ubuntu Os]]></title>
+    <link href="http://jogiranjith.github.io/blog/2016/07/27/installing-ruby-on-rails-in-mac-slash-ubuntu-os/"/>
+    <updated>2016-07-27T00:38:38+05:30</updated>
+    <id>http://jogiranjith.github.io/blog/2016/07/27/installing-ruby-on-rails-in-mac-slash-ubuntu-os</id>
+    <content type="html"><![CDATA[<p>To get your Ruby on Rails development environment set up get working on this right away using the guide i have provided below, broken down according to operating system.  Depending on your operating system and other system specific factors, additional steps may be required. If issues occur during the installation process, please refer to the following link, which may contain more up-to-date information:</p>
+
+<p>If you encounter any problems, don&rsquo;t give up, ask questions in the discussion forum, search the web for answers, etc.  If you can get your development environment set up and functioning properly, you will have taken the first big step towards becoming a web application developer!</p>
+
+<h4>Installing Ruby and Rails on Linux</h4>
+
+<p>  Install Dependencies</p>
+
+<p>  Install build essentials by opening up a terminal window and typing the following command:</p>
+
+<pre><code>  sudo apt-get install build-essential
+</code></pre>
+
+<p>  Next, install curl. In the terminal window type:</p>
+
+<pre><code>  sudo apt-get install curl
+</code></pre>
+
+<p>  Then, install Git. In the terminal window type:</p>
+
+<pre><code>  sudo apt-get install git-core
+</code></pre>
+
+<p>  Installing RVM</p>
+
+<p>  RVM stands for Ruby Version Manager and allows you to install multiple versions of Ruby and switch between them easily. Even if you are only going to use one version, it&rsquo;s probably the simplest way to install Ruby.</p>
+
+<p>  To install RMV, in your terminal window run the command:</p>
+
+<pre><code>  curl -L https://get.rvm.io | bash -s stable --ruby
+</code></pre>
+
+<p>  In the terminal window, type the following in order to make RVM known in your bash sessions:</p>
+
+<pre><code>  echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; . "$HOME/.rvm/scripts/rvm"' &gt;&gt; ~/.bashrc
+</code></pre>
+
+<p>  Finally, restart your bash session by closing and then reopening your terminal window</p>
+
+<p>  Using RVM</p>
+
+<p>  You can get a list of Ruby versions by running the following command in your terminal window:</p>
+
+<pre><code>  rvm list known
+</code></pre>
+
+<p>  The version of Ruby we will use is 2.1.0 and you can install it by using the following command in your terminal window:</p>
+
+<pre><code>  rvm install ruby-2.1.0
+</code></pre>
+
+<p>  Set this version as the default using the following command in your terminal window:</p>
+
+<pre><code>  rvm use 2.1.0
+</code></pre>
+
+<p>  You can then make sure Ruby is installed by running the following command in your terminal window:</p>
+
+<pre><code>  ruby -v
+</code></pre>
+
+<p>  Installing Rails</p>
+
+<pre><code>The latest version of Rails will be installed by issuing the following command.  From your terminal window type:
+
+  gem install rails
+</code></pre>
+
+<p>  you can verify that it was installed correctly by running the following command in your terminal window:</p>
+
+<pre><code>      rails -v
+</code></pre>
+
+<p>  (This will check the current installed version of Rails, which should be 4.0 or later)</p>
+
+<h4>Installing Ruby and Rails on OSX</h4>
+
+<p>  First you must install Xcode with command line utilities</p>
+
+<p>  In order to do this, you must locate Xcode in the Apple app store and install it from there.</p>
+
+<p>  Afterward, open Xcode, go to Preferences and click on the Downloads tab.</p>
+
+<p>  Click install next to Command Line Tools.</p>
+
+<p>  To install Git, go to <a href="http://git-scm.com">http://git-scm.com</a> and download the Mac OSX installer.</p>
+
+<p>  Installing RVM</p>
+
+<p>  RVM stands for Ruby Version Manager and allows you to install multiple versions of Ruby and switch between them easily. Even if you are only going to use one version it&rsquo;s probably the simplest way to install Ruby.</p>
+
+<p>  Install RMV by running the following command in your terminal window:</p>
+
+<pre><code>  curl -L https://get.rvm.io | bash -s stable --ruby
+</code></pre>
+
+<p>  Next, cd to your home directory (using: cd ~) and open the .bashrc file in a text editor using the command:</p>
+
+<pre><code>  pico .bashrc
+</code></pre>
+
+<p>  Copy the following into this file and save it:</p>
+
+<pre><code>  PATH=$PATH:$HOME/.rvm/bin
+</code></pre>
+
+<p>  Finally, restart your bash session by closing and reopening your terminal window.</p>
+
+<p>  Using RVM</p>
+
+<p>  You can get a list of ruby versions by running the following command in your terminal window:</p>
+
+<pre><code>  rvm list known
+</code></pre>
+
+<p>  The version of Ruby we will use is 2.1.0 and you can install it by running the following command in your terminal window:</p>
+
+<pre><code>  rvm install ruby-2.1.0
+</code></pre>
+
+<p>  Set this version as the default by running the following command in your terminal window:</p>
+
+<pre><code>  rvm use 2.1.0
+</code></pre>
+
+<p>  Then, make sure Ruby is installed by running the following command in your terminal window:</p>
+
+<pre><code>  ruby -v
+</code></pre>
+
+<p>  Installing Rails</p>
+
+<p>  The latest version of Rails will be installed by issuing the following command.  From your terminal window type:</p>
+
+<pre><code>  gem install rails -v 4.0
+</code></pre>
+
+<p>  You can verify that it was installed correctly by running the following command in your terminal window:</p>
+
+<pre><code>  rails -v
+</code></pre>
+
+<p>  (This will check the current installed version of Rails, which should be 4.0 or later)</p>
+
+<h4>Installing Ruby and Rails on Windows</h4>
+
+<p>  Installing Ruby</p>
+
+<p>  Ruby can be installed simply by downloading the RubyInstaller executable: Ruby 2.0.0-p247</p>
+
+<p>  Installing Rails</p>
+
+<p>  Rails can be installed by typing the following into your terminal window:</p>
+
+<pre><code>  gem install rails
+</code></pre>
+
+<p>  You can verify that it was installed correctly by running the following command in your terminal window:</p>
+
+<pre><code>  rails -v
+</code></pre>
+
+<p>  (This will check the current installed version of Rails, which should be 4.0 or later)</p>
 ]]></content>
   </entry>
   
