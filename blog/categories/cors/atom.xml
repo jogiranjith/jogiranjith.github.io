@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Code Galaxy]]></title>
-  <link href="http://jogiranjith.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Cors | Code Galaxy]]></title>
+  <link href="http://jogiranjith.github.io/blog/categories/cors/atom.xml" rel="self"/>
   <link href="http://jogiranjith.github.io/"/>
   <updated>2016-09-18T18:10:28+05:30</updated>
   <id>http://jogiranjith.github.io/</id>
@@ -12,57 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Rpush Generating Certificate for Ios]]></title>
-    <link href="http://jogiranjith.github.io/blog/2016/09/07/rpush-generating-certificate-for-ios/"/>
-    <updated>2016-09-07T22:59:56+05:30</updated>
-    <id>http://jogiranjith.github.io/blog/2016/09/07/rpush-generating-certificate-for-ios</id>
-    <content type="html"><![CDATA[<p>To Create .pem file for apple push notification using rpush .</p>
-
-<h2>Steps:</h2>
-
-<p> 1.Create a CSR Using Key Chain Access
- 2.Create a P12 Using Key Chain Access using private key.
- 3.APNS App ID and certificate.</p>
-
-<ul>
-<li>This gives you three files:
-
-<ul>
-<li>The CSR</li>
-<li>The private key as a p12 file (pushkey_production.p12)</li>
-<li>The SSL certificate, aps_development.cer or the .pem file(pushkey_production.pem)</li>
-</ul>
-</li>
-</ul>
-
-
-<p>  Convert the .cer file into a .pem file:</p>
-
-<pre><code> openssl x509 -in aps_development.cer -inform der -out pushkey_production.pem
-</code></pre>
-
-<p>  Convert the private key’s .p12 file into a .pem file:</p>
-
-<pre><code> openssl pkcs12 -nocerts -out private_keyy.p12 -in pushkey_private_production.p12
-</code></pre>
-
-<p>  Enter Import Password:</p>
-
-<pre><code> MAC verified OK
- Enter PEM pass phrase: 
- Verifying - Enter PEM pass phrase:
-</code></pre>
-
-<p>You first need to enter the passphrase for the .p12 file so that openssl can read it. Then you need to enter a new passphrase that will be used to encrypt the PEM file. Again for this tutorial I used “pushchat” as the PEM passphrase. You should choose something more secure. Note: if you don’t enter a PEM passphrase, openssl will not give an error message but the generated .pem file will not have the private key in it.</p>
-
-<p>  Finally, combine the certificate and key into a single .pem file:</p>
-
-<pre><code> cat pushkey_production.pem pushkey_private_production.pem &gt;rpush_prod.pem
-</code></pre>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[CORS on Rails and Nginx]]></title>
